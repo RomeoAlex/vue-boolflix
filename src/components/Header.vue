@@ -5,24 +5,12 @@
     </div>
     <div class="search-wrapper" >
         <!-- v-model per salvare nella variabile il testo digitato -->
-        <input v-model="searchText" type="text" placeholder="genere...">
+        <input v-model="searchText" type="text" placeholder="genere..." @key.enter="$emit('ApiRequested1', searchText)">
         <!-- utilizzo emit per mandare ad app l'attivazione della funzione APIrequest con il testo inserito nella input-->
         <button @click="$emit('ApiRequested', searchText)">Cerca</button>
         
     </div>
-    <div class="movies">
-        <ul v-for="(movie, index) in movieList" :key="index" :details="movie">
-            <li >
-                Titolo:{{movie.title}}
-                Titolo Originale:{{movie.original_title}}
-                Lingua d'origine:{{movie.original_language}}
-                Voto:{{movie.vote_average}}
-            </li>
-          <li>
-              Titolo Originale:{{movie.original_title}}
-          </li>
-        </ul>
-    </div>
+    
 </div>
 </template>
 
@@ -37,9 +25,6 @@ export default {
          }
           
   }
-  
-
-
 }
 </script>
 

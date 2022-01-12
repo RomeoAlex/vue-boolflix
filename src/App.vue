@@ -1,20 +1,22 @@
 <template>
 
   <div id="app">
-    
-    <Header @ApiRequested="APILoad"/>
+    <Header @ApiRequested="APILoad" @ApiRequested1="APILoad"/>
+    <Main :searchedMovieList="movieList" />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Main from "./components/Main.vue";
 import axios from 'axios';
 export default {
   
   name: "App",
   components: {
-    Header,
+    Header, Main,
   },
+
   data: function(){
         return {
             movieList: [],
