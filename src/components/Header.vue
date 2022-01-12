@@ -3,32 +3,43 @@
     <div class="logo">
         <h1>BOOLFIX</h1>
     </div>
-    <div class="search-wrapper">
-        <input type="text">
-        <button @click="APIrequest">Cerca</button>
+    <div class="search-wrapper" >
+        <!-- v-model per salvare nella variabile il testo digitato -->
+        <input v-model="searchText" type="text" placeholder="genere...">
+        <!-- utilizzo emit per mandare ad app l'attivazione della funzione APIrequest con il testo inserito nella input-->
+        <button @click="$emit('ApiRequested', searchText)">Cerca</button>
+        
+    </div>
+    <div class="movies">
+        <ul v-for="(movie, index) in movieList" :key="index" :details="movie">
+            <li >
+                Titolo:{{movie.title}}
+                Titolo Originale:{{movie.original_title}}
+                Lingua d'origine:{{movie.original_language}}
+                Voto:{{movie.vote_average}}
+            </li>
+          <li>
+              Titolo Originale:{{movie.original_title}}
+          </li>
+        </ul>
     </div>
 </div>
 </template>
 
 <script>
-import axios from 'axios';
+
 export default {
   name: "Header",
-  
-  methods:{
-    APIrequest : function(){
-        axios.get('https://api.themoviedb.org/3/search/movie',
-        {
-            params:{
-                api_key:'5df2944e3de5ac0afa350421d515c59b',
-                query: 'vita',
-            }
-        })
-        .then((response) =>{
-            console.log(response.data.results);
-        });
-    }
+//   nei data le informazioni contenute nell'input per poi mandarle al main
+  data: function(){
+      return {
+         searchText:'',
+         }
+          
   }
+  
+
+
 }
 </script>
 
@@ -36,7 +47,7 @@ export default {
 <style scoped lang="scss">
 .header-wrapper{
  width:100%;
- height: 200px;
+//  height: 200px;
  background-color: black;
  padding: 20px 20px;
     .logo{
@@ -49,6 +60,17 @@ export default {
     .search-wrapper{
         float:right;
         margin: 20px 20px;
+    }
+    .movies{
+        color: aliceblue;
+        ul{
+            // list-style: none;
+            li{
+                margin:20 20;
+                padding:20px;
+                color:red;
+            }
+        }
     }
 }
 </style>
