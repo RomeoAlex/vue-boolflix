@@ -20,6 +20,7 @@ export default {
   data: function(){
         return {
             movieList: [],
+            seriesList:[],
             apiKey:'5df2944e3de5ac0afa350421d515c59b',
             queryValue:'',
         };
@@ -29,9 +30,10 @@ export default {
       // il testo è preso dalla emit del figlio Header
       APILoad: function(searchText){
         this.queryValue = searchText;
-        this.APIrequest();
+        this.APIMovieRequest();
+        this.APISeriesRequest();
       },
-    APIrequest : function(){
+    APIMovieRequest : function(){
         axios.get('https://api.themoviedb.org/3/search/movie',
         {
             params:{
@@ -41,6 +43,18 @@ export default {
         })
         .then((response) =>{
             this.movieList = response.data.results;
+        });
+    },
+    APISeriesRequest : function(){
+        axios.get('https://api.themoviedb.org/3/search/tv',
+        {
+            params:{
+                api_key: this.apiKey,
+                query: this.queryValue,
+            }
+        })
+        .then((response) =>{
+            this.seriesList = response.data.results;
         });
     }
   }
