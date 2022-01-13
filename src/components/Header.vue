@@ -22,8 +22,7 @@ export default {
   data: function(){
       return {
          searchText:'',
-         }
-          
+         }    
   }
 }
 </script>
