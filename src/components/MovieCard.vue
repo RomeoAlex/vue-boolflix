@@ -4,7 +4,7 @@
         <div class="poster">
             <div class="poster-box">
                 <div v-if="details.poster_path === null" class="not-found">
-                    <h2>IMMAGINE NON TROVATA</h2>
+                    <h2>POSTER NON TROVATO</h2>
                     <h2>Descrizione all'interno</h2>
                     <img :src="require(`../assets/error-404.jpg`)" alt="">
                 </div>
@@ -32,7 +32,50 @@
                         </span>
                     </div>
                     <div class="vote">
-                        <span>Voto : {{details.vote_average}}</span>
+                        <span v-if="starVote() === 1">Voto : 
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span v-else-if="starVote() === 2">Voto :
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span v-else-if="starVote() === 3">Voto :
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span v-else-if="starVote() === 4">Voto :
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span v-else-if="starVote() === 5">Voto :
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span v-else>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        
+
                     </div>
                     <div class="overview">
                         <p>
@@ -53,12 +96,19 @@ export default {
     name:'MovieCard',
     data:function(){
         return{
-            flagsArray:['it','en']
+            flagsArray:['it','en'],
+            stars:0,
         }  
     },
     props: {
         details: Object
-    } 
+    },
+    methods:{
+        starVote: function(){
+            let stars = Math.floor(this.details.vote_average/2 );
+            return stars; 
+        }
+    }
 }
 </script>
 
@@ -82,7 +132,7 @@ export default {
             display: block;
             width: 340px;
             height: 480px;
-            z-index: 2;
+            z-index: 1;
             .poster-box{
                 padding:10px;
                 .not-found{
@@ -101,10 +151,11 @@ export default {
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 1;
+            // z-index: 1;
             width: 340px;
             height: 480px;
             background-color: #2e3a46;
+            overflow-y: hidden;
             
             .description{
                 font-size:15px;
@@ -119,7 +170,9 @@ export default {
                 font-weight: bold;
             }
             }
-        .original{}
+        .original{
+            font-size: 18px;
+        }
         .language{
             margin-top:20px;
             font-size: 20px;
@@ -128,8 +181,8 @@ export default {
                 font-weight: bold;
             }
             img{
-                height:40px;
-                width:50px;
+                height:30px;
+                width:40px;
             }
         }
         .vote{

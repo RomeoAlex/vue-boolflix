@@ -5,7 +5,7 @@
     </div>
     <div class="search-wrapper" >
         <!-- v-model per salvare nella variabile il testo digitato -->
-        <input v-model="searchText" type="text" placeholder="genere..." @key.enter="$emit('ApiRequested1', searchText)">
+        <input v-model="searchText" type="text" placeholder="genere..." @key.enter="$emit('ApiRequested', searchText)">
         <!-- utilizzo emit per mandare ad app l'attivazione della funzione APIrequest con il testo inserito nella input-->
         <button @click="$emit('ApiRequested', searchText)">Cerca</button>
         

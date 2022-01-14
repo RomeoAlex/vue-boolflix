@@ -1,7 +1,7 @@
 <template>
 
   <div id="app">
-    <Header @ApiRequested="APILoad" @ApiRequested1="APILoad"/>
+    <Header @ApiRequested="APILoad" />
     <Main :searchedMovieList="movieList" :searchedseriesList="seriesList"/>
   </div>
 </template>
