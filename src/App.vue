@@ -64,10 +64,10 @@ export default {
 <style lang="scss">
 @import url('./components/style/general.scss');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  width: 100%;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100%;
   
 }
 </style>

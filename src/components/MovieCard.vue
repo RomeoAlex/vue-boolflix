@@ -115,13 +115,13 @@ export default {
 <style lang="scss" scoped>
 
     .movie-container{
-        margin-top:20px;
+        // margin:20px;
         width: calc((100% / 5) - 15px);
         min-height: 500px;
-        padding: 30px;
+        padding: 20px;
         
-        margin-bottom: 20px;
-        margin-right:15px;
+        // margin-bottom: 20px;
+        // margin-right:15px;
         position: relative;
         .poster{
             

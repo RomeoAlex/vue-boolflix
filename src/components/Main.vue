@@ -38,6 +38,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .main-wrapper{
+  margin:auto;
+  width: 100%;
       .title-section{
         background-color: #2e3a46;
       }
@@ -47,7 +49,8 @@ export default {
         padding: 30px;
       }
       .sub-wrapper{
-      background-color: #2c3e50;
+        padding:20px;
+      background-color: black;
       width: 100%;
       margin: auto;
       display: flex;

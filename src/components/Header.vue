@@ -31,9 +31,12 @@ export default {
 <style scoped lang="scss">
 .header-wrapper{
  width:100%;
-//  height: 200px;
+//  height: 130px;
  background-color: black;
- padding: 20px 20px;
+ padding: 20px;
+ display: flex;
+ justify-content:space-between ;
+ line-height: 50px;
     .logo{
         display: inline-block;
         h1{
@@ -42,19 +45,11 @@ export default {
         }
     }
     .search-wrapper{
-        float:right;
-        margin: 20px 20px;
-    }
-    .movies{
-        color: aliceblue;
-        ul{
-            // list-style: none;
-            li{
-                margin:20 20;
-                padding:20px;
-                color:red;
-            }
+        line-height: 50px;
+        input{
+            margin-right:20px;
         }
     }
+
 }
 </style>
