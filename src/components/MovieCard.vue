@@ -167,6 +167,7 @@ export default {
                  
             .title{  
                 font-size:20px;
+                padding: 10px 0px;
             
               
             span{
@@ -175,9 +176,10 @@ export default {
             }
         .original{
             font-size: 18px;
+            padding: 10px 0px;
         }
         .language{
-            margin-top:20px;
+            // padding: 10px 0px;
             font-size: 20px;
             color:khaki;
             span{
@@ -189,8 +191,9 @@ export default {
             }
         }
         .vote{
+            padding: 5px 0px;
             font-size: 20px;
-            color:brown;
+            color:#ffc107;
             span{
                 font-weight: bold;
             }

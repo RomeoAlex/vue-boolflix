@@ -55,6 +55,7 @@ export default {
       margin: auto;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       }
 }
 </style>
