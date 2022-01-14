@@ -74,10 +74,13 @@
                             <i class="far fa-star"></i>
                             <i class="far fa-star"></i>
                         </span>
-                        
-
                     </div>
-                    <div class="overview">
+                    <div v-if="details.overview === ''" class="overview">
+                        <p>
+                            Trama:Non è stata trovata alcuna informazione
+                        </p>
+                    </div>
+                    <div v-else class="overview">
                         <p>
                             Trama:{{details.overview}}
                         </p>
